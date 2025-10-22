@@ -1,0 +1,11 @@
+sequenceDiagram
+browser-->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+browser: document.getElementById('notes_form') /*Reference to element ID "notes_form" in HTML document, also register event handler to submit event
+
+Event handler-->>browser: e.preventDefault() /*Prevents the default method used for web apps, which would be POST to server then a GET for redirect
+Event handler: notes.push(note) /* Creates new note, adds it to note list, rerenders note list on page, sends note to server 
+
+Event handler -->> server: POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa, content type application/json
+activate server
+server-->>browser: 201 created
+deactivate server 
