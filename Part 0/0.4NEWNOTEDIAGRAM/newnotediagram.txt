@@ -1,3 +1,4 @@
+sequenceDiagram    
     browser-->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note
     activate server /* the server sends a response to the browser to run a GET command, so that the page open is linked to the GET command and not the POST command */
     server-->>browser: status code 302, https://studies.cs.helsinki.fi/exampleapp/notes
