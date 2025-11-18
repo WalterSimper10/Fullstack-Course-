@@ -22,14 +22,26 @@ const Statistics = (props) => {
       <Button onClick={props.handleBadClick} text = "Bad"/>
 
       <h1>Statistics</h1>
-      <p>Good: {props.good}</p>
-      <p>Neutral: {props.neutral}</p>
-      <p>Bad: {props.bad}</p>
-      <p>All: {props.total}</p>
-      <p>Average: {props.average/props.total}</p>
-      <p>Positive: {100*(props.positive/props.total)}%</p>
+      <StatisticLine text="Good" value ={props.good} />
+      <StatisticLine text="Neutral" value ={props.neutral} />
+      <StatisticLine text="Bad" value ={props.bad} />
+      <StatisticLine text="All" value ={props.total} />
+      <StatisticLine text="Average" value ={props.average/props.total} />
+      <StatisticLine text="Positive" value ={100*(props.positive/props.total)} />
       
     </div>
+  )
+}
+
+const StatisticLine = (props) => {
+  return(
+    <table>
+      <tbody>
+        <tr>
+          <td>{props.text}: {props.value}</td>
+        </tr>
+      </tbody>
+    </table>
   )
 }
 
